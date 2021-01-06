@@ -1,0 +1,20 @@
+dist: xenial
+
+os: linux
+
+language: python
+
+python:
+  - 3.9
+
+services:
+  - docker
+
+script:
+  - python3 -m unittest discover test
+
+deploy:
+  provider: script
+  script: bash travis/docker_build_push.sh
+  on:
+    branch: master
