@@ -4,9 +4,11 @@ from flask import Flask
 import epsagon
 
 
+token=os.getenv('EPSAGON_TOKEN', default="")
+
 epsagon.init(
-    token=os.environ['EPSAGON_TOKEN'],
-    app_name='Epsagon Application',
+    token=token,
+    app_name='Python Hello Flask',
     metadata_only=False
 )
 
