@@ -11,7 +11,8 @@ services:
   - docker
 
 script:
-  - python3 -m unittest discover test
+  - pip install -r requirements.txt
+  - python -m unittest discover test
 
 deploy:
   provider: script
