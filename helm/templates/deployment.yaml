@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-hello-flask
+  labels:
+    app: python-hello-flask
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: python-hello-flask
+  template:
+    metadata:
+      labels:
+        app: python-hello-flask
+    spec:
+      containers:
+      - name: python-hello-flask
+        image: ironcore864/python-hello-flask
+        env:
+        - name: EPSAGON_TOKEN
+          value: {{ .Values.epsagonToken }}
+        ports:
+        - containerPort: 5000

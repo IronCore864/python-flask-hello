@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: python-hello-flask
+  labels:
+    app: python-hello-flask
+spec:
+  selector:
+    app: python-hello-flask
+  ports:
+    - port: 80
+      targetPort: 5000
